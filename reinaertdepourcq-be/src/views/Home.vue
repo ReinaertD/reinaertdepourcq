@@ -1,17 +1,17 @@
 <template>
   <div class="home">
     <Header />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="container">
+      <div class="row">
+        <p>This will be the JS animation</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
-  },
+  components: {},
 };
 </script>
