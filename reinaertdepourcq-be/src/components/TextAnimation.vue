@@ -12,8 +12,9 @@ export default {
   props: {},
   data() {
     return {
+      // START TYPEWRITER EFFECT
       base: "Typewriter is ",
-      speed: 800,
+      speed: 600,
       deleteSpeed: 166,
       displayText: [],
       currentWord: "",
@@ -22,6 +23,7 @@ export default {
     };
   },
   computed: {
+    // START FIRST TYPEWRITER EFFECT
     TYPE_SPEED() {
       return this.speed;
     },
@@ -33,6 +35,7 @@ export default {
     },
   },
   methods: {
+    // START FIRST TYPEWRITER EFFECT
     start() {
       if (this.wordList && this.wordList.length > 0) {
         this.currentWord = this.wordList[this.wordIndex].split("");
@@ -40,13 +43,19 @@ export default {
         this.animate = setTimeout(this.type, this.timeoutSpeed);
       }
     },
-    type(word) {
+    wordEnd() {
+      this.timeoutSpeed = this.DELETE_SPEED;
+      this.displayText.pop();
+    },
+    wordStart() {
+      this.displayText.push(this.currentWord.shift());
+    },
+    type() {
       if (this.currentWord.length > 0) {
-        this.displayText.push(this.currentWord.shift());
+        setTimeout(this.wordStart(), this.TYPE_SPEED);
         // delete when done
       } else if (this.currentWord.length === 0 && this.displayText.length > 0) {
-        this.timeoutSpeed = this.DELETE_SPEED;
-        this.displayText.pop();
+        setTimeout(this.wordEnd(), this.DELETE_SPEED);
         // done when deleted
       } else if (
         this.currentWord.length === 0 &&
