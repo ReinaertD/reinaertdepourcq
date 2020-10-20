@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="vh justify-content-between">
     <Header />
     <router-view />
     <Footer />
@@ -13,4 +13,10 @@ export default {
   components: { Header, Footer },
 };
 </script>
-<style></style>
+<style>
+.vh {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+</style>

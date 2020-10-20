@@ -1,6 +1,6 @@
 <template>
-  <div class="row m-0 fixed-bottom bg-light justify-content-center">
-    <div class="footer pt-2">
+  <div class="footer row m-0 bg-light justify-content-center">
+    <div class="pt-2">
       <p>
         This is my footer, there are many like this, but this one's mine.
       </p>
@@ -16,5 +16,6 @@ export default {
 <style scoped>
 .footer {
   color: grey;
+  border-top: 3px solid lightgrey;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-typo bg-light">
+  <div class="navigation-bar bg-light">
     <div class="nav justify-content-between">
       <div class="p-2 d-flex align-items-center">
         <router-link to="/">
@@ -12,19 +12,19 @@
           <router-link class="nav-link" to="/projects">Projects</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/">Home</router-link>
-        </li>
-        <li class="nav-item">
           <router-link class="nav-link" to="/random">Random</router-link>
         </li>
       </ul>
-      <div class="nav">
-        <span class="nav-icon p-2 px-3">
-          <a class="fas fa-at" href="mailto:reinaert.depourcq@gmail.com"></a>
-        </span>
-        <span class="nav-icon nav-icon-alt p-2 px-3">
+      <div class="">
+        <span class="nav-icon nav-icon-alt-a">
           <a
-            class="fab fa-github nav-icon-alt-link"
+            class="fas fa-at nav-icon-alt-a-link p-2 px-3"
+            href="mailto:reinaert.depourcq@gmail.com"
+          ></a>
+        </span>
+        <span class="nav-icon nav-icon-alt">
+          <a
+            class="fab fa-github nav-icon-alt-link p-2 px-3"
             href="https://www.github.com"
           ></a>
         </span>
@@ -38,22 +38,40 @@ export default {
 };
 </script>
 <style scoped>
+@media (max-width: 450px) {
+  .nav-icon {
+    display: none;
+  }
+}
 a {
   text-decoration: none;
   color: black;
 }
-.nav-typo {
-  font-family: Alata;
-}
 .nav-icon {
   font-size: 3em;
+  line-height: 1;
 }
-.nav-icon-alt-link {
+
+.nav-link {
+  font-size: 20px;
+}
+.navigation-bar {
+  border-bottom: 3px solid darkslategrey;
+}
+/* .nav-icon-alt,
+.nav-icon-alt-link,
+.nav-icon-alt-a:hover,
+.nav-icon-alt-a-link:hover {
+  background-color: black;
   color: white;
 }
-.nav-icon-alt {
-  background-color: black;
-}
+.nav-icon-alt-link:hover,
+.nav-icon-alt:hover,
+.nav-icon-alt-a,
+.nav-icon-alt-a-link {
+  color: black;
+  background-color: white;
+} */
 .logo {
   font-weight: 800;
 }

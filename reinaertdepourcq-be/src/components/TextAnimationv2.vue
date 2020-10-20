@@ -1,5 +1,5 @@
 <template>
-  <div class="col-8 offset-md-4 my-3">
+  <div class="col mx-auto my-3">
     <h2>
       {{ base }}<span class="typewriter">{{ displayWord.join("") }}</span>
     </h2>
@@ -12,7 +12,11 @@ export default {
   data() {
     return {
       base: "This site is ",
-      wordList: ["a failure.", "incomplete.", "under construction."],
+      wordList: [
+        "hacked and therefore looks like c*ap.",
+        "incomplete.",
+        "under construction.",
+      ],
       displayWord: [],
       currentWord: "",
       activeWord: "",
@@ -38,33 +42,32 @@ export default {
       this.displayWord.push(this.currentWord.shift());
     },
     wordLogic() {
-      console.log("Start");
+      // console.log("Start");
       if (this.currentWord.length === 1) {
-        console.log("Add");
+        // console.log("Add");
         setTimeout(this.addWord(), this.typeSpeed);
         setTimeout(this.wordLogic, this.typeSpeed + 2000);
       } else if (this.currentWord.length > 0) {
-        console.log("Add");
+        // console.log("Add");
         setTimeout(this.addWord(), this.typeSpeed);
         setTimeout(this.wordLogic, this.typeSpeed);
       } else if (this.currentWord.length === 0 && this.displayWord.length > 0) {
         setTimeout(this.removeWord(), this.deleteSpeed);
         setTimeout(this.wordLogic, this.typeSpeed);
-        console.log("Remove");
+        // console.log("Remove");
       } else if (
         this.currentWord.length === 0 &&
         this.displayWord.length === 0
       ) {
-        console.log("New word");
+        // console.log("New word");
         if (this.wordIndex < this.wordList.length) {
-          console.log("Next word");
+          // console.log("Next word");
           this.currentWord = this.wordList[this.wordIndex].split("");
-          // this.activeWord = this.wordList[this.wordIndex].split("");
           this.wordIndex++;
           this.displayWord.push(this.currentWord.shift());
           setTimeout(this.wordLogic, this.typeSpeed);
         } else {
-          console.log("Reset");
+          // console.log("Reset");
           this.wordIndex = 0;
           setTimeout(this.wordLogic, this.typeSpeed);
         }
@@ -81,6 +84,9 @@ export default {
 .typewriter {
   border-right: 0.1em solid black;
   animation: blink-caret 0.75s step-end infinite;
+}
+h2 {
+  text-align: center;
 }
 @keyframes blink-caret {
   from,
